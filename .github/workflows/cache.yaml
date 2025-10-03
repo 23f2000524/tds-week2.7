@@ -1,0 +1,32 @@
+name: Test Email Step
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: 23f2000524@ds.study.iitm.ac.in
+        run: echo "Hello, world!"
+
+      - name: Prime cache cache-ebd757e
+        id: cache-step
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache 
+          key: cache-ebd757e
+          restore-keys: cache-ebd757e
+
+      - name: prime-cache-ebd757e
+        run: |
+          if [ "${{ steps.cache-step.outputs.cache-hit }}" == "true" ]; then
+            echo "Cache hit!"
+          else
+            echo "Cache miss."
+          fi
